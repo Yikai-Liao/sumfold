@@ -34,7 +34,7 @@ jobs:
           git archive --format=tar.gz --prefix=sumfold/ --output=target/scratch/source/sumfold.tar.gz "$SOURCE_COMMIT"
           cd target/scratch/source
           sha256sum sumfold.tar.gz > SHA256SUMS
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: sumfold-source-${{ inputs.commit }}
           path: target/scratch/source/
