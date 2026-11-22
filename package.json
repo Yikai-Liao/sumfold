@@ -1,0 +1,28 @@
+{
+  "name": "sumfold-tools",
+  "private": true,
+  "description": "Documentation and benchmark tooling for Sumfold",
+  "type": "module",
+  "packageManager": "pnpm@10.34.0",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "format": "biome check --write .",
+    "lint": "biome ci .",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docs:typecheck": "tsc --noEmit",
+    "bench": "node bench/index.ts",
+    "bench:test": "node --test bench/plan.test.ts",
+    "bench:typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6",
+    "@types/node": "^24.19.2",
+    "smol-toml": "^1.9.1",
+    "typescript": "7.1.0-beta",
+    "vitepress": "^1.6.4"
+  }
+}

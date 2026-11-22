@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: BSD-2-Clause
+lengths = [8, 32]
+distributions = ["overlap", "wide", "distinct"]
+samples = 3

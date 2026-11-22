@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: BSD-2-Clause
+[algorithms.direct-a]
+name = "Direct ordered accumulation (A)"
+[algorithms.direct-b]
+name = "Direct ordered accumulation (B)"
+[algorithms.recovery]
+name = "Exact folded moment recovery"
+[distributions.overlap]
+name = "Overlapping progressions"
+[distributions.wide]
+name = "Wide overlapping progressions"
+[distributions.distinct]
+name = "Distinct pair sums"

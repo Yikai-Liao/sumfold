@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: BSD-2-Clause
+[package]
+name = "sumfold"
+version = "0.0.0"
+publish = false
+description = "Exact sparse nonnegative integer convolution"
+readme = "README.md"
+keywords = ["convolution", "sparse", "sumset", "algorithms"]
+categories = ["algorithms", "mathematics"]
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[features]
+default = []
+# Experimental exact moment recovery. SIMD is an unconditional dependency.
+recovery = ["dep:num-bigint"]
+
+[dependencies]
+fearless_simd = "1.2"
+num-bigint = { version = "0.4.6", optional = true }
+
+[package.metadata.docs.rs]
+all-features = true
+
+[lints]
+workspace = true

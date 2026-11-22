@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: BSD-2-Clause
+[package]
+name = "sumfold-bench"
+version = "0.0.0"
+publish = false
+description = "Exact convolution correctness and timing harness"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+sumfold = { path = "../../rust/sumfold", features = ["recovery"] }
+
+[lints]
+workspace = true

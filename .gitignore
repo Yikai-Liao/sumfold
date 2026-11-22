@@ -1,0 +1,7 @@
+/target/
+/node_modules/
+/docs/.vitepress/dist/
+/docs/.vitepress/cache/
+__pycache__/
+*.rs.bk
+.DS_Store

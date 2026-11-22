@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: BSD-2-Clause
+name: Incorrect result or failure
+description: Reproducible arithmetic, CLI or build problem
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Commit, command, exact input, expected and actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, architecture, Rust version and enabled features.
+    validations:
+      required: true

@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: BSD-2-Clause
+name: Performance report
+description: Controlled measurements or a workload to investigate
+body:
+  - type: textarea
+    id: workload
+    attributes:
+      label: Workload and evidence
+      description: Input/output support, coordinate span, numeric widths, exact head, raw measurements, A/A range and machine controls. An unmeasured workload report is welcome if labeled as such.
+    validations:
+      required: true

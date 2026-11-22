@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: BSD-2-Clause
+[workspace]
+members = ["rust/sumfold", "rust/sumfold-cli", "bench/rust"]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.89"
+license = "BSD-2-Clause"
+repository = "https://github.com/Yikai-Liao/sumfold"
+authors = ["Yikai Liao <lyk-boya@outlook.com>"]
+
+[workspace.lints.rust]
+missing_docs = "warn"
+unreachable_pub = "warn"
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+doc_markdown = "warn"
+missing_panics_doc = "warn"
+
+[profile.bench]
+debug = true

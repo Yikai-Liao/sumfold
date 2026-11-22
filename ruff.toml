@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: BSD-2-Clause
+line-length = 100
+target-version = "py312"
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501"] # Formatting controls code width; diagnostics may be longer.

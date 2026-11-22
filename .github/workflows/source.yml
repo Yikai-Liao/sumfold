@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: BSD-2-Clause
+name: Prepare source
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Full 40-character commit hash reachable from main
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_COMMIT: ${{ inputs.commit }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Validate source identity
+        run: |
+          python3 -c 'import os,re; assert re.fullmatch("[0-9a-f]{40}", os.environ["SOURCE_COMMIT"])'
+          git merge-base --is-ancestor "$SOURCE_COMMIT" origin/main
+          git checkout --detach "$SOURCE_COMMIT"
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo test --workspace --all-targets --locked
+      - run: cargo test --workspace --doc --locked
+      - name: Archive reviewed source
+        run: |
+          mkdir -p target/scratch/source
+          git archive --format=tar.gz --prefix=sumfold/ --output=target/scratch/source/sumfold.tar.gz "$SOURCE_COMMIT"
+          cd target/scratch/source
+          sha256sum sumfold.tar.gz > SHA256SUMS
+      - uses: actions/upload-artifact@v6
+        with:
+          name: sumfold-source-${{ inputs.commit }}
+          path: target/scratch/source/
+          retention-days: 14
